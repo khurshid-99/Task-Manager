@@ -180,7 +180,12 @@ const UserDashBord = () => {
             <h1 className="px-8 py-1 text-center bg-[#321b15] text-[2rem] my-4 text-[#faf5ee] rounded-[10px]  ">
               All Task
             </h1>
-            <AllTask data={task} onRemove={handleDeletTask} />
+            <AllTask
+              data={task}
+              onComplete={handleToggleComplete}
+              markAs={handleMarkas}
+              onRemove={handleDeletTask}
+            />
           </div>
         </div>
       </div>

@@ -1,8 +1,9 @@
 import ImportantImg from "../../public/important.png";
-const CompleteTask = ({ data, markAs }) => {
+import CompletedImg from "../../public/completed.png";
+const CompleteTask = ({ data }) => {
   return (
     <div
-      className="w-full flex flex-wrap gap-4
+      className="w-full flex flex-wrap gap-4 relative
      "
     >
       {data &&
@@ -27,20 +28,14 @@ const CompleteTask = ({ data, markAs }) => {
                     {task.desdescription}
                   </p>
                 </div>
-                <div className="flex justify-between items-center ">
-                  <button
-                    onClick={() => markAs(task.id)}
-                    className="text-[1.5rem] bg-[#faf5ee] text-[#1d503a] uppercase px-4 py-1 rounded-[5px] active:scale-[0.95] "
-                  >
-                    {task.markas ? "Marked" : "mark"}
-                  </button>
-                  <button
-                    onClick={() => onComplete(task.id)}
-                    className="text-[1.5rem] bg-[#faf5ee] text-[#1d503a] uppercase px-4 py-1 rounded-[5px] active:scale-[0.95] "
-                  >
-                    Complete
-                  </button>
-                </div>
+
+                {task.completed && (
+                  <img
+                    src={CompletedImg}
+                    alt=""
+                    className="absolute top-1/2 left-1/2 -translate-1/2 w-[10rem] rotate-[40deg] "
+                  />
+                )}
               </div>
             )
         )}
