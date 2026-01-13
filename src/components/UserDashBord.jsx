@@ -1,10 +1,11 @@
 import { useContext, useEffect, useState } from "react";
-import { Link, Navigate, useLocation, useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import { v4 as uuidv4 } from "uuid";
 import { UserDataContext } from "../context/UsersContext";
 import Task from "./Task";
 import CompleteTask from "./CompleteTask";
 import AllTask from "./AllTask";
+import AddTask from "./AddTask";
 const UserDashBord = () => {
   const navigate = useNavigate();
   let location = useLocation();
@@ -26,6 +27,24 @@ const UserDashBord = () => {
   const [desdescription, setDesdescription] = useState("");
   const [markAs, setMarkAs] = useState(false);
   const [completed, setCompleted] = useState(false);
+  const [category, setCategory] = useState("");
+  const [assignTime, setAssignTime] = useState("");
+
+  const [formData, setFormData] = useState({
+    title: "",
+    desdescription: "",
+    category: "",
+    assign: "",
+    markAs: false,
+    completed: false,
+  });
+
+  const handleChange = (key, value) => {
+    setFormData((prev) => ({
+      ...prev,
+      [key]: value,
+    }));
+  };
 
   const handleAddTask = (e) => {
     e.preventDefault();
@@ -38,10 +57,14 @@ const UserDashBord = () => {
           task: [
             ...(e.task || []),
             {
-              title: title,
-              desdescription: desdescription,
-              markas: markAs,
-              completed: completed,
+              // title: title,
+              // desdescription: desdescription,
+              // markas: markAs,
+              // completed: completed,
+              // id: uuidv4(),
+              // assign: assignTime,
+              // category: category,
+              ...formData,
               id: uuidv4(),
             },
           ],
@@ -61,7 +84,7 @@ const UserDashBord = () => {
     return u.id === userData.id;
   });
   const task = currentUser?.task || [];
-  console.log(task);
+  // console.log(task);
 
   const handleLogOut = () => {
     navigate("/login", { replace: true });
@@ -82,8 +105,6 @@ const UserDashBord = () => {
 
     setUsersData(updateUser);
   };
-
-  //
 
   const handleMarkas = (markAsId) => {
     const updateMarkas = usersData.map((user) => {
@@ -121,43 +142,27 @@ const UserDashBord = () => {
         </h1>
         <button
           onClick={handleLogOut}
-          className="text-[2rem] italic capitalize bg-[#321B15] px-4 py-1 rounded-[5px] active:scale-[0.95] "
+          className="text-[1.5rem] bg-[#fd003a] text-[#faf5ee] uppercase px-4 py-1 rounded-[5px] active:scale-[0.95] "
         >
-          LogOut
+          Log out
         </button>
       </div>
+      <div className="w-full h-[85vh] flex gap-2 ">
+        <AddTask
+          formData={formData}
+          onChange={handleChange}
+          onSubmit={handleAddTask}
+          // onSubmit={handleAddTask}
+          // title={title}
+          // setTitle={setTitle}
+          // des={desdescription}
+          // setDes={setDesdescription}
+          // assign={assignTime}
+          // setAssin={setAssignTime}
+          // category={category}
+          // setCategory={setCategory}
+        />
 
-      <div className="w-full h-[85vh] flex ">
-        <div className=" px-4 py-4 rounded-[5px] w-[25rem] h-full ">
-          <h1 className="px-4 py-1 bg-[#321b15] text-[2rem] mb-4 text-[#faf5ee] rounded-[10px]  ">
-            Add Task
-          </h1>
-          <div className="w-full grow bg-[#faf5ee] rounded-[10px] overflow-hidden p-1 h-[75vh] ">
-            <form
-              action=""
-              onSubmit={(e) => handleAddTask(e)}
-              className="flex flex-col bg-[#06070a] w-full h-full rounded-[4px] p-1 "
-            >
-              <input
-                onChange={(e) => setTitle(e.target.value)}
-                value={title}
-                required
-                type="text"
-                placeholder="Enter Task Title"
-              />
-              <textarea
-                required
-                onChange={(e) => setDesdescription(e.target.value)}
-                value={desdescription}
-                name=""
-                id=""
-                placeholder="Tell about Task "
-                className="w-full h-full "
-              ></textarea>
-              <input type="submit" />
-            </form>
-          </div>
-        </div>
         <div className="w-full bg-[#faf5ee] text-[#1d503a] px-4 py-4 rounded-[5px] overflow-y-auto pb-4 ">
           <div className="w-full ">
             <h1 className="px-8 py-1 text-center bg-[#321b15] text-[2rem] mb-4 text-[#faf5ee] rounded-[10px]  ">
@@ -173,7 +178,6 @@ const UserDashBord = () => {
             <h1 className="px-8 py-1 text-center bg-[#321b15] text-[2rem] my-4 text-[#faf5ee] rounded-[10px]  ">
               Complete Task
             </h1>
-            {/* <Task data={task} onComplete={handleToggleComplete} /> */}
             <CompleteTask data={task} markAs={handleMarkas} />
           </div>
           <div className="w-full ">
@@ -189,8 +193,6 @@ const UserDashBord = () => {
           </div>
         </div>
       </div>
-
-      {/* <Task data={task} onComplete={handleToggleComplete} /> */}
     </div>
   );
 };

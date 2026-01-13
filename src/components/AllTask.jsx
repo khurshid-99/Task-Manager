@@ -45,7 +45,7 @@ const AllTask = ({ data, onComplete, markAs, onRemove }) => {
             </div>
 
             <button
-              //   onClick={() => onComplete(task.id)}
+                onClick={() => onRemove(task.id)}
               className="w-full text-[1.5rem] bg-[#fd003a] text-[#faf5ee] uppercase px-4 py-1 rounded-[5px] active:scale-[0.95] "
             >
               Delete
