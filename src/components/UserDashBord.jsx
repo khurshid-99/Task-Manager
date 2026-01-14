@@ -23,12 +23,12 @@ const UserDashBord = () => {
 
   const [usersData, setUsersData] = useContext(UserDataContext);
   // console.log(users);
-  const [title, setTitle] = useState("");
-  const [desdescription, setDesdescription] = useState("");
-  const [markAs, setMarkAs] = useState(false);
-  const [completed, setCompleted] = useState(false);
-  const [category, setCategory] = useState("");
-  const [assignTime, setAssignTime] = useState("");
+  // const [title, setTitle] = useState("");
+  // const [desdescription, setDesdescription] = useState("");
+  // const [markAs, setMarkAs] = useState(false);
+  // const [completed, setCompleted] = useState(false);
+  // const [category, setCategory] = useState("");
+  // const [assignTime, setAssignTime] = useState("");
 
   const [formData, setFormData] = useState({
     title: "",
@@ -76,8 +76,14 @@ const UserDashBord = () => {
 
     // console.log(updateUser);
     setUsersData(updateUser);
-    setTitle("");
-    setDesdescription("");
+    setFormData({
+      title: "",
+      desdescription: "",
+      category: "",
+      assign: "",
+      markAs: false,
+      completed: false,
+    });
   };
 
   const currentUser = usersData.find((u) => {
@@ -165,7 +171,7 @@ const UserDashBord = () => {
 
         <div className="w-full bg-[#faf5ee] text-[#1d503a] px-4 py-4 rounded-[5px] overflow-y-auto pb-4 ">
           <div className="w-full ">
-            <h1 className="px-8 py-1 text-center bg-[#321b15] text-[2rem] mb-4 text-[#faf5ee] rounded-[10px]  ">
+            <h1 className="px-8 py-1 text-center bg-[#fd003a] text-[2rem] mb-4 text-[#faf5ee] rounded-[10px]  ">
               Task
             </h1>
             <Task
@@ -175,13 +181,13 @@ const UserDashBord = () => {
             />
           </div>
           <div className="w-full  ">
-            <h1 className="px-8 py-1 text-center bg-[#321b15] text-[2rem] my-4 text-[#faf5ee] rounded-[10px]  ">
+            <h1 className="px-8 py-1 text-center bg-[#fd003a] text-[2rem] my-4 text-[#faf5ee] rounded-[10px]  ">
               Complete Task
             </h1>
             <CompleteTask data={task} markAs={handleMarkas} />
           </div>
           <div className="w-full ">
-            <h1 className="px-8 py-1 text-center bg-[#321b15] text-[2rem] my-4 text-[#faf5ee] rounded-[10px]  ">
+            <h1 className="px-8 py-1 text-center bg-[#fd003a] text-[2rem] my-4 text-[#faf5ee] rounded-[10px]  ">
               All Task
             </h1>
             <AllTask

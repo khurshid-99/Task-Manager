@@ -13,7 +13,7 @@ const CompleteTask = ({ data }) => {
             task.completed && (
               <div
                 key={task.id}
-                className="bg-[#321b15] text-[#faf5ee] w-[20rem] h-[15rem] p-4 grow rounded-[10px] flex flex-col justify-between relative "
+                className="bg-[#321b15] text-[#faf5ee] w-[20rem] h-[25rem] p-4 grow rounded-[10px] flex flex-col justify-between relative "
               >
                 {task.markas && (
                   <img

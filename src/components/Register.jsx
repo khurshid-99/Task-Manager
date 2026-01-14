@@ -23,7 +23,8 @@ const Register = () => {
         email: userEmail,
         password: userPassword,
         id,
-        task: task,
+        task: [],
+        role: "employed",
       },
     ];
     setUsersData(addNewUser);

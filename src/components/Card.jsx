@@ -1,14 +1,15 @@
+import Button from "./Button";
 import ImportantImg from "../../public/important.png";
 import CompletedImg from "../../public/completed.png";
 
-const AllTask = ({ data, onComplete, markAs, onRemove }) => {
+function Card({ data, onComplete, onMarkas, onRemove }) {
   return (
     <div className="w-full flex flex-wrap gap-4">
       {data.map((task) => (
         <div
           key={task.id}
           className="bg-[#321b15] text-[#faf5ee] w-[20rem] h-[25rem] p-4 grow rounded-[10px] flex flex-col justify-between relative
-         "
+             "
         >
           {task.markas && (
             <img
@@ -32,20 +33,25 @@ const AllTask = ({ data, onComplete, markAs, onRemove }) => {
           </div>
           <div className="flex flex-col justify-between items-center gap-4 ">
             <div className="w-full flex items-center justify-between ">
-              <button className="text-[1.5rem] bg-[#faf5ee] text-[#1d503a] uppercase px-4 py-1 rounded-[5px] active:scale-[0.95] ">
+              <button 
+                onClick={onMarkas(task.id)}
+              className="text-[1.5rem] bg-[#faf5ee] text-[#1d503a] uppercase px-4 py-1 rounded-[5px] active:scale-[0.95] ">
                 {task.markas ? "Marked" : "mark"}
               </button>
               {task.completed ? (
                 ""
               ) : (
-                <button className="text-[1.5rem] bg-[#faf5ee] text-[#1d503a] uppercase px-4 py-1 rounded-[5px] active:scale-[0.95] ">
+                <button
+                  onClick={onComplete(task.id)}
+                  className="text-[1.5rem] bg-[#faf5ee] text-[#1d503a] uppercase px-4 py-1 rounded-[5px] active:scale-[0.95] "
+                >
                   Complete
                 </button>
               )}
             </div>
 
             <button
-                onClick={() => onRemove(task.id)}
+              onClick={() => onRemove(task.id)}
               className="w-full text-[1.5rem] bg-[#fd003a] text-[#faf5ee] uppercase px-4 py-1 rounded-[5px] active:scale-[0.95] "
             >
               Delete
@@ -55,6 +61,6 @@ const AllTask = ({ data, onComplete, markAs, onRemove }) => {
       ))}
     </div>
   );
-};
+}
 
-export default AllTask;
+export default Card;

@@ -12,7 +12,7 @@ const Task = ({ data, onComplete, onMarkas }) => {
           !task.completed && (
             <div
               key={task.id}
-              className="bg-[#321b15] text-[#faf5ee] w-[20rem] h-[15rem] p-4 grow rounded-[10px] flex flex-col justify-between relative
+              className="bg-[#321b15] text-[#faf5ee] w-[20rem] h-[25rem] p-4 grow rounded-[10px] flex flex-col justify-between relative
          "
             >
               {task.markas && (
@@ -24,6 +24,12 @@ const Task = ({ data, onComplete, onMarkas }) => {
               )}
               <div>
                 <h1 className="text-[2rem] capitalize ">{task.title}</h1>
+                <h1 className="text-[2rem] capitalize ">{task.category}</h1>
+                <h1 className="text-[2rem] capitalize ">
+                  {task?.assign?.split("T")[0]}
+                  <br />
+                  Time {task?.assign?.split("T")[1]}
+                </h1>
                 <p className="text-[1.4rem] font-light opacity-70 ">
                   {task.desdescription}
                 </p>
