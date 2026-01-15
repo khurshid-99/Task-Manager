@@ -13,7 +13,7 @@ This project lets users organize and track tasks from a clean, intuitive UI.
 ✔ View task lists  
 ✔ Mark tasks as completed  
 ✔ Delete tasks  
-✔ Clean and responsive UI
+✔ Clean and UI
 
 > *(Add more features here as you build them!)*
 
