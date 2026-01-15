@@ -1,16 +1,115 @@
-# React + Vite
+# Task Manager 🚀
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A simple and modern **task management web app** built with **React + Vite**.  
+This project lets users organize and track tasks from a clean, intuitive UI.
 
-Currently, two official plugins are available:
+👉 Live Demo: https://task-manager-one-murex.vercel.app :contentReference[oaicite:1]{index=1}
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+---
 
-## React Compiler
+## 📦 Features
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+✔ Create tasks  
+✔ View task lists  
+✔ Mark tasks as completed  
+✔ Delete tasks  
+✔ Clean and responsive UI
 
-## Expanding the ESLint configuration
+> *(Add more features here as you build them!)*
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+---
+
+## 🧠 Tech Stack
+
+| Technology | Purpose |
+|------------|---------|
+| React      | Frontend UI |
+| Vite       | Build tool |
+| JavaScript | Logic & components |
+| ESLint     | Code linting |
+| Vercel     | Deployment |
+
+---
+
+## 🚀 Getting Started
+
+Follow these steps to **run this project locally** on your machine.
+
+### 🛠 Prerequisites
+
+Make sure you have this installed:
+
+- Node.js (v16+ recommended)
+- npm (comes with Node.js)
+
+---
+
+### 📥 1. Clone the Repo
+
+```bash
+git clone https://github.com/khurshid-99/Task-Manager.git
+cd Task-Manager
+
+
+📦 2. Install Dependencies
+npm run dev
+
+🧪 3. Run Development Server
+npm run dev
+Open http://localhost:5173
+ in your browser to see your app running.
+
+🛠 Deployment
+This project is already set up for Vercel deployment.
+To deploy:
+--Push your repo to GitHub.
+--Import the project on Vercel.
+--Set build command:
+npm run build
+
+Set output directory:
+dist
+
+Task-Manager/
+├── public/           # Static assets
+├── src/              # React source code
+├── .gitignore
+├── index.html
+├── package.json
+├── vercel.json
+├── vite.config.js
+└── README.md
+Task-Manager/
+├── public/           # Static assets
+├── src/              # React source code
+├── .gitignore
+├── index.html
+├── package.json
+├── vercel.json
+├── vite.config.js
+└── README.md
+
+🧪 Scripts
+| Script            | Description              |
+| ----------------- | ------------------------ |
+| `npm run dev`     | Run in development mode  |
+| `npm run build`   | Create production build  |
+| `npm run preview` | Preview production build |
+
+🤝 Contributing
+Contributions are welcome!
+Fork the repo
+Create a new branch
+Make your changes
+Open a Pull Request
+
+📄 License
+This project is open-source — feel free to use and modify it! (Add specific license if any)
+
+
+---
+
+If you want, I can *customize the features section* to match exactly what your app does — just tell me what the app currently supports (e.g., drag-and-drop tasks, filters, localStorage use).
+::contentReference[oaicite:2]{index=2}
+
+
