@@ -50,27 +50,41 @@ Make sure you have this installed:
 git clone https://github.com/khurshid-99/Task-Manager.git
 cd Task-Manager
 
+```
+### 📦 2. Install Dependencies
+```bash
+npm install
 
-📦 2. Install Dependencies
+```
+### 🧪 3. Run Development Server
+```bash
 npm run dev
+```
+ Open http://localhost:5173 
+in your browser to see your app running.
 
-🧪 3. Run Development Server
-npm run dev
-Open http://localhost:5173
- in your browser to see your app running.
+---
+# 🛠 Deployment
 
-🛠 Deployment
-This project is already set up for Vercel deployment.
-To deploy:
---Push your repo to GitHub.
---Import the project on Vercel.
---Set build command:
+- This project is already set up for Vercel deployment.
+- To deploy:
+- Push your repo to GitHub.
+- Import the project on Vercel.
+- Set build command:
+```bash
 npm run build
-
-Set output directory:
+```
+## Set output directory:
+```bash 
 dist
+```
+ Vercel will handle the rest! Your app will be live with proper routes.
 
-Task-Manager/
+---
+
+ # 🧹 Folder Structure
+ ```bash
+ Task-Manager/
 ├── public/           # Static assets
 ├── src/              # React source code
 ├── .gitignore
@@ -79,37 +93,53 @@ Task-Manager/
 ├── vercel.json
 ├── vite.config.js
 └── README.md
-Task-Manager/
-├── public/           # Static assets
-├── src/              # React source code
-├── .gitignore
-├── index.html
-├── package.json
-├── vercel.json
-├── vite.config.js
-└── README.md
+```
 
-🧪 Scripts
+---
+
+# 🧪 Scripts
 | Script            | Description              |
 | ----------------- | ------------------------ |
 | `npm run dev`     | Run in development mode  |
 | `npm run build`   | Create production build  |
 | `npm run preview` | Preview production build |
 
-🤝 Contributing
-Contributions are welcome!
-Fork the repo
-Create a new branch
-Make your changes
-Open a Pull Request
+---
 
-📄 License
-This project is open-source — feel free to use and modify it! (Add specific license if any)
+# ❓ Troubleshootin
+### 🔹 Dashboard routing crashes
+- If your app crashes when accessing routes directly (like /dashboard), ensure your vercel.json has this rewrite:
 
+```
+{
+  "rewrites": [
+    {
+      "source": "/(.*)",
+      "destination": "/index.html"
+    }
+  ]
+}
+```
+- This ensures client-side routing works properly on Vercel.
+
+# 🤝 Contributing
+### Contributions are welcome!
+- Fork the repo
+- Create a new branch
+- Make your changes
+- Open a Pull Request
+---
+# 📄 License
+### This project is open-source — feel free to use and modify it! (Add specific license if any)
+
+---
+
+# ✨ Happy Coding! 😊
+
+```
 
 ---
 
 If you want, I can *customize the features section* to match exactly what your app does — just tell me what the app currently supports (e.g., drag-and-drop tasks, filters, localStorage use).
 ::contentReference[oaicite:2]{index=2}
-
-
+```
